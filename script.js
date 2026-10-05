@@ -161,23 +161,22 @@
   );
 
   /* ---------------- Agendar (.ics) ---------------- */
+  const EVENT = {
+    title: "Open House · Bárbara Atenea Beauty Club",
+    details: "Recibe un análisis facial digital personalizado, sin costo.",
+    location: "Edificio Clifford 2, Local 1A, Luxemburgo N34-191 y Holanda, Quito",
+  };
+
+  // Google Calendar no permite fijar recordatorios por URL: usa el aviso por defecto de cada usuario
   document.getElementById("addCal").addEventListener("click", () => {
-    const ics = [
-      "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Barbara Atenea//Open House//ES",
-      "BEGIN:VEVENT",
-      "UID:openhouse-2026@barbaraatenea.com",
-      "DTSTAMP:20261001T000000Z",
-      "DTSTART;TZID=America/Guayaquil:20261016T100000",
-      "DTEND;TZID=America/Guayaquil:20261016T180000",
-      "SUMMARY:Open House · Bárbara Atenea Beauty Club",
-      "DESCRIPTION:Recibe un análisis facial digital personalizado\\, sin costo.",
-      "LOCATION:Edificio Clifford 2\\, Local 1A\\, Luxemburgo N34-191 y Holanda\\, Quito",
-      "END:VEVENT", "END:VCALENDAR",
-    ].join("\r\n");
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" }));
-    a.download = "open-house-barbara-atenea.ics";
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    const params = new URLSearchParams({
+      action: "TEMPLATE",
+      text: EVENT.title,
+      dates: "20261016T100000/20261016T180000",
+      ctz: "America/Guayaquil",
+      details: EVENT.details,
+      location: EVENT.location,
+    });
+    window.open(`https://calendar.google.com/calendar/render?${params}`, "_blank", "noopener");
   });
 })();
