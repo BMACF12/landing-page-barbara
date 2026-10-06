@@ -55,32 +55,6 @@
       .join("");
   });
 
-  /* ---------------- Edificios del mapa ---------------- */
-  const buildings = document.getElementById("buildings");
-  const blocks = [...document.querySelectorAll(".block")];
-  let bi = 0;
-  blocks.forEach(block => {
-    if (!block.isPointInFill) return;
-    const box = block.getBBox();
-    for (let tries = 0; tries < 70; tries++) {
-      const w = 14 + rng() * 18, h = 12 + rng() * 16;
-      const x = box.x + rng() * (box.width - w), y = box.y + rng() * (box.height - h);
-      const pad = 6;
-      const corners = [[x - pad, y - pad], [x + w + pad, y - pad], [x - pad, y + h + pad], [x + w + pad, y + h + pad]];
-      if (!corners.every(([cx, cy]) => block.isPointInFill(new DOMPoint(cx, cy)))) continue;
-      const overlaps = [...buildings.children].some(r => {
-        const rx = +r.getAttribute("x"), ry = +r.getAttribute("y"), rw = +r.getAttribute("width"), rh = +r.getAttribute("height");
-        return x < rx + rw + 5 && x + w + 5 > rx && y < ry + rh + 5 && y + h + 5 > ry;
-      });
-      if (overlaps) continue;
-      const r = document.createElementNS(SVGNS, "rect");
-      Object.entries({ x: x.toFixed(1), y: y.toFixed(1), width: w.toFixed(1), height: h.toFixed(1), rx: 2 })
-        .forEach(([k, v]) => r.setAttribute(k, v));
-      r.style.setProperty("--i", bi++);
-      buildings.appendChild(r);
-    }
-  });
-
   /* ---------------- Revelado al hacer scroll ---------------- */
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {

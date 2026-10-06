@@ -339,16 +339,13 @@ body.ready .swash path { stroke-dashoffset: 0; transition: stroke-dashoffset 1.8
 }
 .map-card.in { transition: opacity 1s var(--ease), transform .4s ease-out; }
 .map { width: 100%; height: 100%; display: block; }
-.block { fill: #f4ece0; stroke: #d2bea3; stroke-width: 1; opacity: 0; transition: opacity 1s ease; }
-.map-card.drawn .block { opacity: 1; }
-.buildings rect { fill: #e9dcca; stroke: #ddcbb3; stroke-width: .6; opacity: 0; transform-box: fill-box; transform-origin: center; transform: scale(.6); transition: opacity .6s ease, transform .6s var(--ease); }
-.map-card.drawn .buildings rect { opacity: .9; transform: none; transition-delay: calc(.6s + var(--i) * 18ms); }
+.buildings path { fill: #e9dcca; stroke: #d6c2a6; stroke-width: .7; stroke-linejoin: round; opacity: 0; transform-box: fill-box; transform-origin: center; transform: scale(.6); transition: opacity .6s ease, transform .6s var(--ease); }
+.map-card.drawn .buildings path { opacity: 1; transform: none; transition-delay: calc(.5s + var(--i) * 10ms); }
 .road path { fill: none; stroke-dasharray: 1; stroke-dashoffset: 1; stroke-linecap: butt; }
 .road .edge { stroke: #c8ae8c; stroke-width: calc(var(--w) + 2px); }
 .road .fill { stroke: #f8f2e8; stroke-width: var(--w); }
-.road .hatch { stroke: url(#hatch); stroke-width: 10px; }
 .map-card.drawn .road path { stroke-dashoffset: 0; transition: stroke-dashoffset 1.6s var(--ease) var(--rd); }
-.labels text { font-family: var(--serif); font-size: 15px; fill: #6a5646; opacity: 0; transition: opacity 1s ease 1.4s; }
+.labels text { font-family: var(--serif); font-size: 13px; font-weight: 500; fill: #6a5646; text-anchor: middle; dominant-baseline: central; paint-order: stroke; stroke: #f8f2e8; stroke-width: 3px; stroke-linejoin: round; opacity: 0; transition: opacity 1s ease 1.4s; }
 .map-card.drawn .labels text { opacity: 1; }
 .pin-body { transform: translateY(-80px); opacity: 0; }
 .map-card.drawn .pin-body { animation: pinDrop .9s cubic-bezier(.3, 1.6, .5, 1) 1.6s forwards; }
