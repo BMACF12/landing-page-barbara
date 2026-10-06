@@ -296,15 +296,8 @@ body.ready .swash path { stroke-dashoffset: 0; transition: stroke-dashoffset 1.8
 .signature.in .script { clip-path: inset(-30% -5% -30% -5%); }
 .tagline { font-size: 8.5px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); }
 
-.logo { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 40px; }
-.owl { width: 34px; height: 42px; fill: none; stroke: #8a7766; stroke-width: 1.1; stroke-linejoin: round; stroke-linecap: round; }
-.owl .dot { fill: #8a7766; animation: blinkEye 5s infinite; transform-box: fill-box; transform-origin: center; }
-@keyframes blinkEye { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
-.logo-text { display: flex; flex-direction: column; align-items: center; }
-.lt-small { display: flex; align-items: center; gap: 6px; font-size: 7px; letter-spacing: .32em; text-transform: uppercase; color: #8a7766; }
-.lt-small i { width: 16px; height: 1px; background: #b8a48f; }
-.lt-big { font-family: var(--serif); font-size: 30px; letter-spacing: .14em; color: #6e5c4c; line-height: 1; margin: 2px 0; }
-.lt-small.sub { letter-spacing: .4em; }
+.logo { display: block; width: min(250px, 72%); margin: 0 auto 36px; }
+.logo img { display: block; width: 100%; height: auto; }
 
 .site-link {
   display: inline-flex; align-items: center; gap: 6px; float: right; margin-right: 6px;
