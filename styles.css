@@ -276,7 +276,7 @@ body.ready .swash path { stroke-dashoffset: 0; transition: stroke-dashoffset 1.8
 .info-item:hover .icon { transform: translateY(-3px) scale(1.08); }
 .link {
   font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: #8f7f6e; text-decoration: none;
-  font-style: italic; position: relative; padding-bottom: 2px;
+  font-style: italic; position: relative; padding-bottom: 2px; text-align: center; text-wrap: balance; line-height: 1.5;
 }
 .link::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor;
