@@ -353,7 +353,7 @@ body.ready .swash path { stroke-dashoffset: 0; transition: stroke-dashoffset 1.8
 .map-card.drawn .pin .shadow { opacity: 1; }
 .pin .pulse { fill: none; stroke: #b68b5e; stroke-width: 1.4; opacity: 0; transform-box: fill-box; transform-origin: center; }
 .map-card.drawn .pin .pulse { animation: pulse 2.2s ease-out 2.4s infinite; }
-.pin-label { font-family: var(--serif); font-size: 15px; fill: #4c3c30; opacity: 0; transition: opacity .8s 2.3s; }
+.pin-label { font-family: var(--serif); font-size: 15px; font-weight: 600; fill: #4c3c30; paint-order: stroke; stroke: #f8f2e8; stroke-width: 4px; stroke-linejoin: round; opacity: 0; transition: opacity .8s 2.3s; }
 .map-card.drawn .pin-label { opacity: 1; }
 @keyframes pinDrop { 0% { transform: translateY(-80px); opacity: 0; } 30% { opacity: 1; } 100% { transform: none; opacity: 1; } }
 @keyframes pulse { 0% { transform: scale(.4); opacity: .9; } 100% { transform: scale(2.6); opacity: 0; } }
