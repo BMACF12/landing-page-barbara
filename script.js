@@ -133,24 +133,4 @@
       setTimeout(() => s.remove(), 700);
     })
   );
-
-  /* ---------------- Agendar (.ics) ---------------- */
-  const EVENT = {
-    title: "Open House · Bárbara Atenea Beauty Club",
-    details: "Recibe un análisis facial digital personalizado, sin costo.",
-    location: "Edificio Clifford 2, Local 1A, Luxemburgo N34-191 y Holanda, Quito",
-  };
-
-  // Google Calendar no permite fijar recordatorios por URL: usa el aviso por defecto de cada usuario
-  document.getElementById("addCal").addEventListener("click", () => {
-    const params = new URLSearchParams({
-      action: "TEMPLATE",
-      text: EVENT.title,
-      dates: "20261016T100000/20261016T180000",
-      ctz: "America/Guayaquil",
-      details: EVENT.details,
-      location: EVENT.location,
-    });
-    window.open(`https://calendar.google.com/calendar/render?${params}`, "_blank", "noopener");
-  });
 })();
